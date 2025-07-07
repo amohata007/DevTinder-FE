@@ -7,3 +7,8 @@
 - Header Component
 - Footer Component
 - Implemented Routing using createBrowserRouter
+
+- Imlemented Login Page
+- Installed Axios
+- Made Login Successful API call
+- Resolve Cors issue -> BE -> MiddleWare -> app.use("cors")
