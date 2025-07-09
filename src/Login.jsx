@@ -6,11 +6,19 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   //api call
-  const handleLogin = async () => {
-    await axios.post("http://localhost:3000/login", {
-      emailId,
-      password,
-    });
+  const handleLogin = async (e) => {
+    e.preventDefault(); // <-- prevents form reload
+
+    try {
+      const response = await axios.post("http://localhost:3000/login", {
+        emailId,
+        password,
+      });
+
+      console.log("Login successful", response.data);
+    } catch (error) {
+      console.error("Login failed", error);
+    }
   };
 
   return (
@@ -48,6 +56,7 @@ const Login = () => {
           </div>
 
           <button
+            type="submit"
             className="btn btn-primary w-full shadow-md hover:shadow-lg transition duration-200"
             onClick={handleLogin}
           >
